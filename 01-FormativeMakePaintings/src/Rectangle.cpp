@@ -15,24 +15,28 @@ void Rectangle::CreateFirstPainting(sf::Vector2f rectSize)
 
             rect.setPosition(rect.getSize().x * width, rect.getSize().y * height);
 
+            // 10% chance that the rect is red
             if (randomColor >= 1 && randomColor <= 10)
             {
                 sf::Color red = Utility::GetAColorVariation(Colors::RED);
                 rect.setFillColor(red);
             }
 
+            // 5% chance that the rect is orange
             else if (randomColor >= 11 && randomColor <= 15)
             {
                 sf::Color orange = Utility::GetAColorVariation(Colors::ORANGE);
                 rect.setFillColor(orange);
             }
 
+            // 1% chance that the rect is purple
             else if (randomColor == 16)
             {
                 sf::Color purple = Utility::GetAColorVariation(Colors::PURPLE);
                 rect.setFillColor(purple);
             }
 
+            // The other rect are pink
             else
             {
                 sf::Color pink = Utility::GetAColorVariation(Colors::PINK);
@@ -65,6 +69,7 @@ void Rectangle::CreateSecondPainting()
 
         rect.setOutlineThickness(5.0f);
 
+        // Create a shadow rectangle.
         if (_rectangles.size() < rectNbr)
         {
             int width = Utility::GetRandomInt(50, 350);
@@ -83,11 +88,19 @@ void Rectangle::CreateSecondPainting()
 
         }
 
+        // Create the normal rectangles after the shadows ones.
+        // Like this they are added to the back of the vector and thus drawn over the shadows.
         else
         {
+            // The index is the current index of the "for loop" minus the rect number.
+            // Like that each rectangles get the properties of its corresponding shadow rectangle.
+
+            // Get the size of the corresponding shadow rectangle to apply it to the normal one.
             auto size = _rectangles[idxRect - rectNbr].getSize();
             rect.setSize(size);
 
+            // Get the position of the corresponding shadow rectangle and change it a little bit
+            // to create the shadow effect.
             auto position = _rectangles[idxRect - rectNbr].getPosition();
             rect.setPosition(position.x - 10, position.y - 20);
 

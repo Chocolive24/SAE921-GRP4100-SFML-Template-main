@@ -18,6 +18,9 @@ add_subdirectory ("E00-Animations")
 set(EXECUTABLE_CUSTOM_NAME "E01-DrawableTransformable")
 add_subdirectory ("E01-DrawableTransformable")
 
-set(EXECUTABLE_CUSTOM_NAME "01-FormativMakePaintings")
+set(EXECUTABLE_CUSTOM_NAME "01-FormativeMakePaintings")
 add_subdirectory ("01-FormativeMakePaintings")
+
+set(EXECUTABLE_CUSTOM_NAME "02-FormativeArkanoid")
+add_subdirectory ("02-FormativeArkanoid")
 
