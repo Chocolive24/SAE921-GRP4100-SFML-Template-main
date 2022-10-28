@@ -4,6 +4,8 @@
 
 namespace Utility
 {
+    // -------------------------------------------------------------------------------------------------------
+
     int GetRandomInt(int min, int max)
 	{
         std::random_device os_seed;
@@ -14,6 +16,8 @@ namespace Utility
 
         return (int)distribute(generator);
     }
+
+    // -------------------------------------------------------------------------------------------------------
 
     sf::Color GetAColorVariation(Colors color)
     {
@@ -53,4 +57,6 @@ namespace Utility
             return purple;
         }
     }
+
+    // -------------------------------------------------------------------------------------------------------
 }

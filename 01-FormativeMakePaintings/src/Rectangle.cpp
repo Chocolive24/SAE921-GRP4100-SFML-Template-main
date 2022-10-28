@@ -1,10 +1,13 @@
 #include "Rectangle.h"
 #include "Utility.h"
 
+// ------------------------------------------------------------------------------------------------------------
+
 void Rectangle::CreateFirstPainting(sf::Vector2f rectSize)
 {
     _rectangles.clear();
 
+    // Loop that is activated for each rectangle in width and height
     for (int width = 0; width < 16; width++)
     {
         for (int height = 0; height < 24; height++)
@@ -51,6 +54,8 @@ void Rectangle::CreateFirstPainting(sf::Vector2f rectSize)
     }
 }
 
+// ------------------------------------------------------------------------------------------------------------
+
 void Rectangle::CreateSecondPainting()
 {
     _rectangles.clear();
@@ -85,11 +90,10 @@ void Rectangle::CreateSecondPainting()
             rect.setOutlineColor(sf::Color(110, 110, 110));
 
             _rectangles.emplace_back(rect);
-
         }
 
         // Create the normal rectangles after the shadows ones.
-        // Like this they are added to the back of the vector and thus drawn over the shadows.
+        // Like that they are added to the back of the vector and thus drawn over the shadows.
         else
         {
             // The index is the current index of the "for loop" minus the rect number.
@@ -111,6 +115,8 @@ void Rectangle::CreateSecondPainting()
     }
 }
 
+// ------------------------------------------------------------------------------------------------------------
+
 void Rectangle::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     for (auto& rect : _rectangles)
@@ -118,3 +124,5 @@ void Rectangle::draw(sf::RenderTarget& target, sf::RenderStates states) const
         target.draw(rect, states);
     }
 }
+
+// ------------------------------------------------------------------------------------------------------------

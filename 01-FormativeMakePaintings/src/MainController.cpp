@@ -1,11 +1,14 @@
 #include "MainController.h"
 
+// ------------------------------------------------------------------------------------------------------------
+
 void MainController::Init()
 {
     _window.create(sf::VideoMode(600, 800), 
 				  "Formative Make Paintings", sf::Style::Close);
     _window.setVerticalSyncEnabled(true);
     _window.setFramerateLimit(30);
+
     _windowCenter.x = _window.getSize().x / 2.0f;
 	_windowCenter.y = _window.getSize().y / 2.0f;
 
@@ -20,18 +23,18 @@ void MainController::Init()
     _text.setPosition(_windowCenter.x, (_windowCenter.y - _text.getOrigin().y));
 }
 
+// ------------------------------------------------------------------------------------------------------------
+
 int MainController::MainLoop()
 {
     while (_window.isOpen())
     {
-        // on inspecte tous les évènements de la fenêtre qui ont été émis depuis la précédente itération
         sf::Event event;
 
         while (_window.pollEvent(event))
         {
             switch (event.type)
             {
-                // évènement "fermeture demandée" : on ferme la fenêtre
             case sf::Event::Closed:
                 _window.close();
                 break;
@@ -51,7 +54,6 @@ int MainController::MainLoop()
                     break;
 
                 case sf::Mouse::Right:
-
                     _startScreen = false;
 
                     _rect.CreateSecondPainting();
@@ -79,3 +81,5 @@ int MainController::MainLoop()
 
     return EXIT_SUCCESS;
 }
+
+// ------------------------------------------------------------------------------------------------------------
