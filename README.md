@@ -13,7 +13,7 @@ This is a SFML program which draw paintings witch the mouse clicks.
 
 * Using SFML Frameworks, figure out an algorithm to make this picture from Vera Molnar
 * Each click on a mouse button redraw a new picture following the same principles.  
-* ![image](https://user-images.githubusercontent.com/113425924/198551435-45d745bf-bb83-4f8c-8157-3ee5ebca5e22.png)  
-* ![image](https://user-images.githubusercontent.com/113425924/198551485-8913ca57-a422-4a05-a809-50d52b3f0f39.png)  
+* https://canvas.sae.edu/courses/13839/files/851583/preview  
+* https://canvas.sae.edu/courses/13839/files/851582/preview  
 
 
