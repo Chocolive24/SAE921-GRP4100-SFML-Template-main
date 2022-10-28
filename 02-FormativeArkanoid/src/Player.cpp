@@ -2,12 +2,23 @@
 
 Player::Player()
 {
-	_speed = 20.0f;
+	_speed = 15.0f;
 }
 
-void Player::Move(const sf::Vector2f& direction)
+void Player::MoveLeft()
 {
-	_bar.Move(direction, _speed);
+	if (_bar.GetPosition().x - _bar.GetBounds().width / 2 >= 0)
+	{
+		_bar.Move(sf::Vector2f(-1, 0), _speed);
+	}
+}
+
+void Player::MoveRight()
+{
+	if (_bar.GetPosition().x + _bar.GetBounds().width / 2 <= 1000)
+	{
+		_bar.Move(sf::Vector2f(1, 0), _speed);
+	}
 }
 
 void Player::Launch(Ball& ball)

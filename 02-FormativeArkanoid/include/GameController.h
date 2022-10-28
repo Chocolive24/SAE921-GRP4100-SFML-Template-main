@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Ball.h"
-#include "Bar.h"
+#include "Brick.h"
 #include "Player.h"
 #include "SFML/Graphics.hpp"
 
@@ -10,16 +10,20 @@ class GameController
 private:
 	sf::RenderWindow _window;
 
-	//Bar _bar;
 	Player _player;
 	Ball _ball;
+	Brick _brick;
 
-	bool _launch = false;
+	bool _launched = false;
 
 
 public:
 
 	void Init();
+
+	void CheckInput();
+
+	void Update();
 
 	int GameLoop();
 };

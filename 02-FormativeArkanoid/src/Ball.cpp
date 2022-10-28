@@ -13,8 +13,8 @@ Ball::Ball()
 
 	_speed = 10.0f;
 
-	_velocity.x = _speed;
-	_velocity.y = - (_speed);
+	_velocity.x = _speed / 2.0f;
+	_velocity.y = - (_speed );
 }
 
 void Ball::Move(sf::Vector2f direction)
@@ -24,7 +24,7 @@ void Ball::Move(sf::Vector2f direction)
 	setPosition(position);
 }
 
-void Ball::Bounce(sf::Vector2f wallNormal, sf::FloatRect bounds)
+void Ball::Bounce(sf::Vector2f wallNormal, sf::FloatRect bounds, bool isCollidingBrick)
 {
 	if (getPosition().y - _radius <= 0)
 	{
@@ -36,7 +36,7 @@ void Ball::Bounce(sf::Vector2f wallNormal, sf::FloatRect bounds)
 		_velocity.x = -_velocity.x;
 	}
 
-	if (isColliding(bounds))
+	if (isColliding(bounds) || isCollidingBrick)
 	{
 		_velocity.y = -_velocity.y;
 	}

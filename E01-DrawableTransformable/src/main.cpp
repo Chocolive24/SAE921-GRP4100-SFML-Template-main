@@ -11,6 +11,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML First Window");
 
     Link link;
+    
 
     // Basic Setup of the window
     // Vertical sync, framerate

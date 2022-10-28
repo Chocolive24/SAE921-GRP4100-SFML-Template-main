@@ -20,7 +20,8 @@ public:
 
 	Bar& GetBar() { return _bar; }
 
-	void Move(const sf::Vector2f& direction);
+	void MoveLeft();
+	void MoveRight();
 
 	void Launch(Ball& ball);
 
