@@ -22,7 +22,7 @@ public:
 
 	void CreateBricks();
 
-	bool Break(Ball& ball);
+	void Break(sf::RectangleShape& brick);
 
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 };

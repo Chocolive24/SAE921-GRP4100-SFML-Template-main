@@ -51,8 +51,18 @@ void GameController::CheckInput()
 
 void GameController::Update()
 {
-    _ball.Bounce(sf::Vector2f(_window.getSize().x, _window.getSize().y),
-				 _player.GetBar().GetBounds(), _brick.Break(_ball));
+	_ball.Bounce(sf::Vector2f(_window.getSize().x, _window.getSize().y));
+
+    _ball.CollideBounce(_player.GetBar().GetBounds());
+
+    for (auto& brick : _brick.GetBricks())
+    {
+        if (_ball.isColliding(brick.getGlobalBounds()))
+        {
+            _ball.CollideBounce(brick.getGlobalBounds());
+            _brick.Break(brick);
+        }
+    }
 }
 
 int GameController::GameLoop()
@@ -69,6 +79,8 @@ int GameController::GameLoop()
         _window.clear(sf::Color::Black);
 
         Update();
+
+        //std::cout << _ball.GetPosition().x << " "<<  _ball.GetPosition().y << std::endl;
 
         _window.draw(_player);
         _window.draw(_ball);

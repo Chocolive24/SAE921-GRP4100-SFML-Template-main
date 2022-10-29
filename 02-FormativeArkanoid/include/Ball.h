@@ -2,7 +2,7 @@
 
 #include "SFML/Graphics.hpp"
 
-class Ball : public sf::Drawable, sf::Transformable
+class Ball : public sf::Drawable
 {
 private:
 	sf::CircleShape _shape;
@@ -20,14 +20,16 @@ public:
 
 	void Move(sf::Vector2f direction);
 
-	void Bounce(sf::Vector2f wallNormal, sf::FloatRect bounds, bool isCollidingBrick);
+	void Bounce(sf::Vector2f wallNormal);
 
-	auto GetPosition() { return getPosition(); }
+	void CollideBounce(sf::FloatRect bounds);
 
-	sf::Vector2f GetTop() { return sf::Vector2f(getPosition().x, getPosition().y - _radius); }
-	sf::Vector2f GetBottom() { return sf::Vector2f(getPosition().x, getPosition().y + _radius); }
-	sf::Vector2f GetLeft() { return sf::Vector2f(getPosition().x - _radius, getPosition().y); }
-	sf::Vector2f GetRight() { return sf::Vector2f(getPosition().x + _radius, getPosition().y); }
+	auto GetPosition() { return _shape.getPosition(); }
+
+	sf::Vector2f GetTop() { return sf::Vector2f(_shape.getPosition().x, _shape.getPosition().y - _radius); }
+	sf::Vector2f GetBottom() { return sf::Vector2f(_shape.getPosition().x, _shape.getPosition().y + _radius); }
+	sf::Vector2f GetLeft() { return sf::Vector2f(_shape.getPosition().x - _radius, _shape.getPosition().y); }
+	sf::Vector2f GetRight() { return sf::Vector2f(_shape.getPosition().x + _radius, _shape.getPosition().y); }
 
 
 	float GetRadius() { return _radius; }
