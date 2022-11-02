@@ -5,17 +5,19 @@ Player::Player()
 	_speed = 15.0f;
 }
 
-void Player::MoveLeft()
+void Player::MoveLeft(Ball& ball)
 {
-	if (_bar.GetPosition().x - _bar.GetBounds().width / 2 >= 0)
+	if (GetPosition().x - GetGlobalBounds().width / 2 >= 0 &&
+		!GetGlobalBounds().intersects(ball.GetGlobalBounds()))
 	{
 		_bar.Move(sf::Vector2f(-1, 0), _speed);
 	}
 }
 
-void Player::MoveRight()
+void Player::MoveRight(Ball& ball)
 {
-	if (_bar.GetPosition().x + _bar.GetBounds().width / 2 <= 1000)
+	if (GetPosition().x + GetGlobalBounds().width / 2 <= 600 &&
+		!GetGlobalBounds().intersects(ball.GetGlobalBounds()))
 	{
 		_bar.Move(sf::Vector2f(1, 0), _speed);
 	}
@@ -23,12 +25,10 @@ void Player::MoveRight()
 
 void Player::Launch(Ball& ball)
 {
-	ball.Move(sf::Vector2f(-1, -1));
+	ball.Move();
 }
 
 void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	states.transform *= getTransform();
-
 	target.draw(_bar, states);
 }

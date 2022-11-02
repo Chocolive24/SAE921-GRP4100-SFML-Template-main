@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Ball.h"
 #include "SFML/Graphics.hpp"
 #include <SFML/Audio.hpp>
 
@@ -9,20 +8,18 @@ class Brick : public sf::Drawable
 private:
 	sf::RectangleShape _shape;
 
-	std::vector<sf::RectangleShape> _bricks;
-
-	sf::Sound _sound;
-	sf::SoundBuffer _buffer;
-
+	bool _isBroken = false;
 
 public:
-	Brick();
+	Brick(sf::Vector2f size);
 
-	std::vector<sf::RectangleShape>& GetBricks() { return _bricks; }
+	void SetPosition(float x, float y) { _shape.setPosition(x, y); }
 
-	void CreateBricks();
+	auto GetSize() { return _shape.getSize(); }
+	auto GetGlobalBounds() { return _shape.getGlobalBounds(); }
+	bool IsBroken() { return _isBroken; }
 
-	void Break(sf::RectangleShape& brick);
+	void Break();
 
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 };

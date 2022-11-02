@@ -4,7 +4,7 @@
 #include "Bar.h"
 #include "SFML/Graphics.hpp"
 
-class Player : public sf::Drawable, sf::Transformable
+class Player : public sf::Drawable
 {
 private:
 
@@ -15,13 +15,16 @@ private:
 	float _speed;
 
 public:
-
 	Player();
 
 	Bar& GetBar() { return _bar; }
 
-	void MoveLeft();
-	void MoveRight();
+	auto GetPosition() { return _bar.GetPosition(); }
+	void SetPosition(float x, float y) { _bar.SetPosition(x, y);}
+	auto GetGlobalBounds() { return _bar.GetGlobalBounds(); }
+
+	void MoveLeft(Ball& ball);
+	void MoveRight(Ball& ball);
 
 	void Launch(Ball& ball);
 
