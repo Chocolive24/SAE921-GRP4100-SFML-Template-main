@@ -1,5 +1,7 @@
 #include "GameText.h"
 
+// -----------------------------------------------------------------------------------------------------------
+
 GameText::GameText(std::string string, int characterSize, sf::Color color, sf::Text::Style style)
 {
     if (!_font.loadFromFile("data/font/arial.ttf"))
@@ -18,7 +20,11 @@ GameText::GameText(std::string string, int characterSize, sf::Color color, sf::T
     _text.setPosition(600 / 2.0f, (800 / 2.0f) - _text.getOrigin().y);
 }
 
+// -----------------------------------------------------------------------------------------------------------
+
 void GameText::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     target.draw(_text, states);
 }
+
+// -----------------------------------------------------------------------------------------------------------

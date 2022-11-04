@@ -1,5 +1,7 @@
 #include "Bar.h"
 
+// -----------------------------------------------------------------------------------------------------------
+
 Bar::Bar()
 {
 	_shape.setSize(sf::Vector2f(100, 15));
@@ -8,6 +10,8 @@ Bar::Bar()
 	_shape.setPosition(300, 800 - _shape.getGlobalBounds().height / 2);
 }
 
+// -----------------------------------------------------------------------------------------------------------
+
 void Bar::Move(const sf::Vector2f& direction, float speed)
 {
 	auto position = _shape.getPosition();
@@ -15,9 +19,13 @@ void Bar::Move(const sf::Vector2f& direction, float speed)
 	_shape.setPosition(position);
 }
 
+// -----------------------------------------------------------------------------------------------------------
+
 void Bar::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	//states.transform *= _shape.getTransform();
 
 	target.draw(_shape, states);
 }
+
+// -----------------------------------------------------------------------------------------------------------

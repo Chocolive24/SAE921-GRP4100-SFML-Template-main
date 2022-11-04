@@ -1,6 +1,6 @@
 #include "Brick.h"
 
-#include <iostream>
+// -----------------------------------------------------------------------------------------------------------
 
 Brick::Brick(sf::Vector2f size)
 {
@@ -12,14 +12,11 @@ Brick::Brick(sf::Vector2f size)
 	_shape.setOutlineColor(sf::Color::Black);
 }
 
-void Brick::Break()
-{
-	_isBroken = true;
-}
+// -----------------------------------------------------------------------------------------------------------
 
 void Brick::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	//states.transform *= getTransform();
-
 	target.draw(_shape, states);
 }
+
+// -----------------------------------------------------------------------------------------------------------
