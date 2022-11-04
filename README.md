@@ -5,26 +5,26 @@ The exercises whose names begin with "00" are basic templates to help design the
 Exercises whose names begin with "0" and then continuous numbers are graded exercises. They are called Formative Exercices.    
 Exercises with names beginning with "E00" are ungraded exercises.  
 
-## 01-Formative Make Paintings.  
+# 01-Formative Make Paintings.  
 
 This is a SFML program which draw paintings with the mouse clicks.  
 
-### Basics element requiered in the program :  
+## Basics element requiered in the program :  
 
 * Using SFML Frameworks, figure out an algorithm to make this picture from Vera Molnar.  
 * Each click on a mouse button redraw a new picture following the same principles.  
 * https://canvas.sae.edu/courses/13839/files/851583/preview  
 * https://canvas.sae.edu/courses/13839/files/851582/preview  
 
-### Learning Objectives:  
+## Learning Objectives:  
 
 * Create algorithms for specific tasks.  
 
-## 02-Formative Arkanoid.  
+# 02-Formative Arkanoid.  
 
 This is a breaker game inspired by arkanoid.  
 
-### Basics element requiered in the program :  
+## Basics element requiered in the program :  
 
 * Using SFML Frameworks, create a breaker game.  
 * Controls :  
@@ -48,6 +48,6 @@ This is a breaker game inspired by arkanoid.
         * init method to instantiate the Player, Ball, and Brick elements
         * Main SFML loop
 
-### Learning Objectives:  
+## Learning Objectives:  
 
 * Create algorithms for specific tasks.  
